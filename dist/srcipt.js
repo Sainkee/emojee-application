@@ -35,14 +35,16 @@ function filterData(value) {
 }
 
 tb.addEventListener("click", (e) => {
-  let val = e.target.innerText;
-  navigator.clipboard.writeText(val);
-  Toastify({
-    text: "emojee copied   ",
-    className: "info",
-    close: true,
-    style: {
-      background: "linear-gradient(to right, #00b09b, #96c93d)",
-    },
-  }).showToast();
+  if (e.target.nodeName === "SPAN") {
+    let val = e.target.innerText;
+    navigator.clipboard.writeText(val);
+    Toastify({
+      text: "Emojee copied",
+      className: "info",
+      close: true,
+      style: {
+        background: "linear-gradient(to right, #00b09b, #96c93d)",
+      },
+    }).showToast();
+  }
 });
